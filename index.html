@@ -4,159 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hope Widows Foundation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Hope Widows Foundation</h1>
+        <!-- Other sections here -->
+    </header>
+    <main>
+        <!-- Other sections here -->
+        <section id="donation">
+            <h2>Make a Donation</h2>
+            <div class="donation-amount-selection">
+                <button class="amount-button" data-amount="500">KES 500</button>
+                <button class="amount-button" data-amount="1000">KES 1000</button>
+                <button class="amount-button" data-amount="5000">KES 5000</button>
+                <button class="amount-button" data-amount="10000">KES 10000</button>
+            </div>
+            <form id="donation-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" required readonly>
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method" name="payment-method">
+                    <option value="mpesa">M-Pesa Paybill 247247 Account 309345</option>
+                    <option value="bank">Bank Transfer</option>
+                    <option value="card">Card Options</option>
+                </select>
+                <label for="message">Message (optional):</label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">Submit Donation</button>
+            </form>
+            <div class="payment-methods">
+                <p>For assistance, contact us at:</p>
+                <p>Phone: <a href="tel:+254758797579">+254758797579</a></p>
+                <p>Email: <a href="mailto:calebsimiyu15@gmail.com">calebsimiyu15@gmail.com</a></p>
+            </div>
+            <div class="impact-cards">
+                <h3>Your Impact</h3>
+                <div class="impact-card">
+                    <h4>KES 500</h4>
+                    <p>Provides food for a family for a week.</p>
+                </div>
+                <div class="impact-card">
+                    <h4>KES 1000</h4>
+                    <p>Funds education materials for a child.</p>
+                </div>
+                <div class="impact-card">
+                    <h4>KES 5000</h4>
+                    <p>Supports health care for a less privileged individual.</p>
+                </div>
+                <div class="impact-card">
+                    <h4>KES 10000</h4>
+                    <p>Helps with housing support for a family.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Other sections here -->
+    </main>
+    <footer>
+        <p>&copy; 2026 Hope Widows Foundation</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.amount-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const amount = button.getAttribute('data-amount');
+                document.getElementById('amount').value = amount;
+            });
+        });
+
+        document.getElementById('donation-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would typically handle the donation submission via an API.
+            alert('Thank you for your donation!');
+            setTimeout(() => {
+                document.getElementById('donation-form').reset();
+            }, 3000);
+        });
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(120deg, #6a1b9a, #ff9800);
-            color: white;
+            background: linear-gradient(45deg, #f3ec78, #af4261);
+            color: #333;
         }
-        header {
-            background: #333;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav {
-            margin: 15px 0;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        .hero {
-            text-align: center;
-            padding: 50px 20px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        .section {
-            padding: 20px;
-        }
-        .card {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 10px;
-            display: inline-block;
-            width: 30%;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-        }
-        .cta {
-            background-color: #ff9800;
+        .donation-amount-selection button {
+            margin: 5px;
+            padding: 10px 15px;
             border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin-top: 20px;
-            cursor: pointer;
             border-radius: 5px;
+            cursor: pointer;
+            background: #fff;
+            transition: background 0.3s;
         }
-        form {
-            max-width: 400px;
-            margin: auto;
+        .donation-amount-selection button:hover {
+            background: #ddd;
         }
-        form input, form textarea {
+        #donation-form input, #donation-form select, #donation-form textarea {
             width: 100%;
             padding: 10px;
             margin: 5px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+        #donation-form button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        #donation-form button:hover {
+            background: #218838;
+        }
+        .impact-card {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .donation-amount-selection {
+                flex-direction: column;
+            }
+        }
     </style>
-</head>
-<body>
-    <header>
-        <h1>Hope Widows Foundation</h1>
-        <p>Empowering Widows, Transforming Lives</p>
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#about">About</a>
-        <a href="#programs">Programs</a>
-        <a href="#impact">Impact</a>
-        <a href="#stories">Stories</a>
-        <a href="#contact">Contact</a>
-        <a href="#donate">Donate</a>
-    </nav>
-    <section class="hero">
-        <h2>Welcome to our Foundation</h2>
-        <p>Join us in making a difference.</p>
-    </section>
-    <section id="about" class="section">
-        <h2>About Us</h2>
-        <div class="card">
-            <h3>Mission</h3>
-            <p>To empower widows and their families.</p>
-        </div>
-        <div class="card">
-            <h3>Vision</h3>
-            <p>A world where widows thrive.</p>
-        </div>
-        <div class="card">
-            <h3>Values</h3>
-            <p>Compassion, Integrity, Community.</p>
-        </div>
-    </section>
-    <section id="programs" class="section">
-        <h2>Our Programs</h2>
-        <ul>
-            <li>Psycho-Social Support</li>
-            <li>Income Generation</li>
-            <li>Legal Support</li>
-            <li>Education Support</li>
-            <li>Community Groups</li>
-            <li>Health & Wellness</li>
-        </ul>
-    </section>
-    <section id="impact" class="section">
-        <h2>Our Impact</h2>
-        <p><strong>Statistics:</strong></p>
-        <ul>
-            <li>500+ widows supported</li>
-            <li>50+ community groups</li>
-            <li>100+ businesses started</li>
-            <li>1000+ children impacted</li>
-        </ul>
-    </section>
-    <section id="stories" class="section">
-        <h2>Testimonials</h2>
-        <p>"This foundation changed my life!" - Former Beneficiary</p>
-        <p>"I found hope again thanks to their support." - Widow Member</p>
-    </section>
-    <section id="contact" class="section">
-        <h2>Contact Us</h2>
-        <p>Phone: <a href="tel:+254758797579">+254758797579</a></p>
-        <p>Email: <a href="mailto:calebsimiyu15@gmail.com">calebsimiyu15@gmail.com</a></p>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="cta">Send Message</button>
-        </form>
-    </section>
-    <section id="donate" class="section">
-        <h2>Support Us</h2>
-        <p>Your donation can make a difference!</p>
-        <h3>Donation Amounts:</h3>
-        <ul>
-            <li>$25</li>
-            <li>$50</li>
-            <li>$100</li>
-            <li>Other: <input type="text" placeholder="Enter amount"></li>
-        </ul>
-        <button class="cta">Donate Now</button>
-    </section>
-    <footer>
-        <p>&copy; 2026 Hope Widows Foundation</p>
-    </footer>
 </body>
 </html>
