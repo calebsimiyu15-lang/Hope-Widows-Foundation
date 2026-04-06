@@ -4,72 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hope Widows Foundation</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header, footer { background: #4CAF50; color: white; padding: 10px 0; text-align: center; }
+        section { padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        /* Responsive design */
+        @media (max-width: 600px) { .container { padding: 10px; } }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Hope Widows Foundation</h1>
-        <nav>
-            <ul>
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#donate">Donate</a></li>
-                <li><a href="#team">Our Team</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="programs">
-        <h2>Our Programs</h2>
-        <p>Details about programs offered by the foundation.</p>
-    </section>
-
-    <section id="testimonials">
-        <h2>Testimonials</h2>
-        <p>Feedback from those we've helped.</p>
-    </section>
-
-    <section id="gallery">
-        <h2>Gallery</h2>
-        <p>A collection of images showcasing our work.</p>
-    </section>
-
-    <section id="faq">
-        <h2>Frequently Asked Questions</h2>
-        <p>Answers to common questions.</p>
-    </section>
-
-    <section id="donate">
-        <h2>Donate</h2>
-        <form action="#" method="post">
-            <label for="donation-amount">Amount:</label>
-            <input type="number" id="donation-amount" name="donation-amount" required>
-            <input type="submit" value="Donate">
-        </form>
-    </section>
-
-    <section id="team">
-        <h2>Our Team</h2>
-        <p>Information about the team members.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form action="#" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <input type="submit" value="Send">
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Hope Widows Foundation. All rights reserved.</p>
-    </footer>
+    <header><h1>Hope Widows Foundation</h1></header>
+    <div class="container">
+        <section id="about"><h2>About</h2><p>Information about the foundation.</p></section>
+        <section id="programs"><h2>Programs</h2><p>Details of programs offered.</p></section>
+        <section id="impact"><h2>Impact</h2><p>The impact we've made.</p></section>
+        <section id="testimonials"><h2>Testimonials</h2><p>What people say about us.</p></section>
+        <section id="gallery"><h2>Gallery</h2><p>Visuals of our work.</p></section>
+        <section id="team"><h2>Team</h2><p>Meet our team.</p></section>
+        <section id="faq"><h2>FAQ</h2><p>Answers to common questions.</p></section>
+        <section id="donations"><h2>Donations</h2><p>How to donate.</p></section>
+        <section id="contact"><h2>Contact Us</h2><p>Contact information.</p></section>
+    </div>
+    <footer><p>&copy; 2026 Hope Widows Foundation</p></footer>
+    <script>
+        // JavaScript functionality for enhanced user experience
+        document.querySelectorAll('section h2').forEach((header) => {
+            header.addEventListener('click', () => {
+                const section = header.parentElement;
+                section.classList.toggle('collapsed');
+            });
+        });
+    </script>
 </body>
 </html>
